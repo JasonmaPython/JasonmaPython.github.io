@@ -1,8 +1,43 @@
 <html>
-  <head>
-    <meta charset="UTF-8" />
-  </head>
-  <body>
-    
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to my Server</title>
+    <script>
+        var change = function (){
+            jpl.href = selector.options[selector.selectedIndex].value
+        }
+    </script>
+    <style>
+    body{
+        background-image: linear-gradient(145deg, #007fff 10%, #00ff00 70%, #ffff00 100%);
+    }
+    h1, h2{
+        text-align: center;
+    }
+    h1.wel:hover,h2:hover,a:hover{
+        color:#0040ff;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    select{
+        border-radius: 8px;
+    }
+    </style>
+</head>
+<body>
+<h1 class="wel">Welcome to my server!</h1>
+<h2 class="goto">
+    <select id="sel" onchange="change()">
+        <option selected="selected" value="/Serv1/getReq.asp">CloudFiles</option>
+        <option value="#">Self</option>
+    </select>
+    <a href="/Serv1/getReq.asp" id="link">Go to the selected server here</a>
+</h2>
+<script>
+    var selector = document.getElementById("sel");
+    var jpl = document.getElementById("link");
+</script>
+</body>
 </html>
