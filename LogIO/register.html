@@ -1,0 +1,58 @@
+<html>
+<head>
+    <script>
+        var xhr = new XMLHttpRequest ();
+        xhr.open("GET","logn.asp");
+        function ons(choose) {
+
+        }
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        }
+    </script>
+    <style>
+        h1, h3 {
+            text-align: center;
+        }
+
+            h1.wel:hover, h3:hover, a:hover {
+                color: #003fff;
+            }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="wel">Register</h1>
+    <div id="regis">
+        <span>User Name:</span>
+        <br />
+        <input type="text" placeholder="Please input your username" />
+        <br />
+        <span>Password:</span>
+        <br />
+        <input type="password" placeholder="Please input your password" />
+        <br />
+        <input type="password" placeholder="Please input your password again" />
+    </div>
+    <script>
+    if (getQueryString("framtype") != "framing"){
+        document.body.style.backgroundImage="linear-gradient(145deg, #ff7f7f 10%, #0000ff 100%)";
+    } else {
+        document.body.style.backgroundImage="none";
+        document.body.style.backgroundColor="#bbb";
+        document.body.style.border="7px groove #007fff";
+        document.body.style.margin="0px";
+    }
+    </script>
+</body>
+</html>
