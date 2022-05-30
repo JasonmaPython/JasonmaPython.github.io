@@ -24,14 +24,18 @@
     select{
         border-radius: 8px;
     }
+    iframe{
+        width: 100%;
+        height: auto;
+    }
     </style>
 </head>
 <body>
 <h1 class="wel">Welcome to my server!</h1>
 <h2 class="goto">
     <select id="sel" onchange="change()">
-        <option selected="selected" value="/Serv1/getReq.asp">CloudFiles</option>
-        <option value="#">Self</option>
+        <option value="/Serv1/getReq.asp">CloudFiles</option>
+        <option selected="selected" value="#">Self</option>
     </select>
     <a href="/Serv1/getReq.asp" id="link">Go to the selected server here</a>
 </h2>
