@@ -53,17 +53,18 @@
         <br />
         <input type="text" placeholder="Please input the text in that image" />
         <br />
-        <span>Have an Account and need login? <a href="login.html?framtype=framing" target="_self">Login</a> now!</span>
+        <span>Have an Account and need login? <a href="login.html" target="_self">Login</a> now!</span>
     </div>
-    <script>
-    if (getQueryString("framtype") != "framing"){
-        document.body.style.backgroundImage="linear-gradient(145deg, #ff7f7f 10%, #0000ff 100%)";
-    } else {
-        document.body.style.backgroundImage="none";
-        document.body.style.backgroundColor="#bbb";
-        document.body.style.border="7px groove #007fff";
-        document.body.style.margin="0px";
-    }
-    </script>
+    <!--    <script>
+                    --?framtype=framing
+        if (getQueryString("framtype") != "framing"){
+            document.body.style.backgroundImage="linear-gradient(145deg, #ff7f7f 10%, #0000ff 100%)";
+        } else {
+            document.body.style.backgroundImage="none";
+            document.body.style.backgroundColor="#bbb";
+            document.body.style.border="7px groove #007fff";
+            document.body.style.margin="0px";
+        }
+        </script> -->
 </body>
 </html>
