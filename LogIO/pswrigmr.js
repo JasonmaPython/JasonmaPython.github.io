@@ -6,6 +6,8 @@ class letter {
         canvs.font = '20px "Arial"';
         canvs.textBaseline = "bottom";
         canvs.textAlign = "left";
-        canvs.fillText
+        canvs.fillText("A",0,0)
     }
 }
+letr = new letter()
+letr.a()
