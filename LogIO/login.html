@@ -1,7 +1,7 @@
 <html>
 <head>
     <script>
-        
+
         function getQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
             var r = window.location.search.substr(1).match(reg);
@@ -15,14 +15,15 @@
         body {
             background-image: linear-gradient(145deg, #ff7f7f 10%, #0000ff 100%);
         }
+
         h1, h3 {
             text-align: center;
         }
 
-        h1.wel:hover, h3:hover, a:hover {
-            color: #003fff;
-        }
-        
+            h1.wel:hover, h3:hover, a:hover {
+                color: #003fff;
+            }
+
         a {
             text-decoration: none;
             color: black;
@@ -43,11 +44,11 @@
     <div class="login">
         <span>User Name:</span>
         <br />
-        <input type="text" placeholder="Please input your username" />
+        <input placeholder="Please input your username" type="text" />
         <br />
         <span>Password:</span>
         <br />
-        <input type="password" placeholder="Please input your password" />
+        <input placeholder="Please input your password" type="password" />
         <br />
         <br />
         <span>
@@ -57,15 +58,15 @@
         </span>
     </div>
     <!--    <script>
-                    --?framtype=framing
-        if (getQueryString("framtype") != "framing"){
-            document.body.style.backgroundImage="linear-gradient(145deg, #ff7f7f 10%, #0000ff 100%)";
-        } else {
-            document.body.style.backgroundImage="none";
-            document.body.style.backgroundColor="#bbb";
-            document.body.style.border="7px groove #007fff";
-            document.body.style.margin="0px";
-        }
-        </script> -->
+                --?framtype=framing
+    if (getQueryString("framtype") != "framing"){
+        document.body.style.backgroundImage="linear-gradient(145deg, #ff7f7f 10%, #0000ff 100%)";
+    } else {
+        document.body.style.backgroundImage="none";
+        document.body.style.backgroundColor="#bbb";
+        document.body.style.border="7px groove #007fff";
+        document.body.style.margin="0px";
+    }
+    </script> -->
 </body>
 </html>
