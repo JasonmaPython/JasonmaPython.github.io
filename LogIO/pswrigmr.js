@@ -1,9 +1,9 @@
 canvs = document.getElementById("cvsimg").getContext("2d");
 class letter {
 	constructor(pos) {
-		this.real = [10 + pos * 74, 100];
+		this.real = [10 + pos * 74, 30];
 		canvs.fillStyle = "black";
-		canvs.font = '100px "Arial"';
+		canvs.font = '74px "Arial"';
 		console.log("0");
 	}
 	a() {
