@@ -9,4 +9,4 @@ class letter {
         canvs.fillText("A",this.real[0],this.real[1])
     }
 }
-letter(0).a();
+new letter(0).a();
