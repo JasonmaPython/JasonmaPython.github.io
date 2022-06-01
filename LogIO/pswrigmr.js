@@ -4,11 +4,11 @@ class letter {
 		this.real = [10 + pos * 74,]
 		canvs.fillStyle = "black";
 		canvs.font = '100px "Arial"';
-		consle.log("0")
+		console.log("0")
 	}
 	a() {
 		canvs.fillText("A", this.real[0], this.real[1])
-		consle.log("F")
+		console.log("F")
 	}
 }
 letr = new letter(0)
