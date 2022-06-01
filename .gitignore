@@ -2,3 +2,4 @@
 *.png
 .vs/
 .git/
+.idea/
