@@ -1,1 +1,151 @@
-<div id="template">
+<html lang="zh">
+<head>
+	<title></title>
+</head>
+<body>
+<label>
+	How much?
+	<select id="select">
+		<option value="100" selected>100</option>
+		<option value="50">50</option>
+		<option value="20">20</option>
+		<option value="10">10</option>
+		<option value="5">5</option>
+		<option value="1">1</option>
+	</select>
+</label>
+<label>
+	No.<span id="nstr">AA</span>
+	<input type="text" id="code" placeholder="0001" />
+</label>
+<label>
+	<input type="radio" name="iotime" id="clicking" />
+	<input type="radio" name="iotime" id="auto" />
+</label>
+<input type="button" value="submit" id="submit" />
+<img id="show" alt="Image" src=""/>
+<div id="template" hidden>
+	<svg xmlns="http://www.w3.org/2000/svg" height="5cm" width="10cm">
+		<rect x="0" y="0" width="100%" height="100%" fill="white"/>
+		<!-- Rects(Modify here) -->
+		<rect x="22.5%" y="0" height="5cm" width="27.5%" fill="#{{CLFT}}"/>
+		<rect x="50%" y="0" height="5cm" width="50%" fill="#{{CRHT}}"/>
+		<rect x="1.75cm" y="25%" height="12.5%" width="8.25cm" fill="#{{CMID}}"/>
+		<!-- (the end of modifying) -->
+		<g>
+			<path d="M 22.5 10 l 15 0 l -7.5 15" stroke="gray" stroke-width="3" fill="none"/>
+			<path d="M 22.5 10 l 3.25 7.5" stroke="#AA38AE" stroke-width="3" fill="none"/>
+			<path d="M 26.25 17.5 l 3.25 7.5" stroke="#679EEE" stroke-width="3" fill="none"/>
+		</g>
+		<g>
+			<path d="M 50 22.5 l 0 15 l -15 -7.5" stroke="gray" stroke-width="3" fill="none"/>
+			<path d="M 50 22.5 l -7.5 3.25" stroke="#AA38AE" stroke-width="3" fill="none"/>
+			<path d="M 42.5 25.75 l -7.5 3.25" stroke="#679EEE" stroke-width="3" fill="none"/>
+		</g>
+		<g>
+			<path d="M 37.5 50 l -15 0 l 7.5 -15" stroke="gray" stroke-width="3" fill="none"/>
+			<path d="M 37.5 50 l -3.25 -7.5" stroke="#AA38AE" stroke-width="3" fill="none"/>
+			<path d="M 33.75 42.5 l -3.25 -7.5" stroke="#679EEE" stroke-width="3" fill="none"/>
+		</g>
+		<g>
+			<path d="M 10 37.5 l 0 -15 l 15 7.5" stroke="gray" stroke-width="3" fill="none"/>
+			<path d="M 10 37.5 l 7.5 -3.25" stroke="#AA38AE" stroke-width="3" fill="none"/>
+			<path d="M 17.5 34.25 l 7.5 -3.25" stroke="#679EEE" stroke-width="3" fill="none"/>
+		</g>
+		<text font-size="20" fill="black" stroke="none"
+		      x="20%" y="20%">The First People's Bank
+		</text>
+		<text font-size="25" fill="#FACC1C" stroke="none"
+		      x="85%" y="20%" font-weight="bold">{{TMCH}}
+		</text>
+		<text font-size="28" fill="#FACC1C" stroke="none"
+		      x="27.5%" y="51%" font-weight="bold">{{BMCH}}
+		</text>
+		<text font-size="17.5" fill="black" stroke="none"
+		      x="32.5%" y="61%" font-family="宋体">{{CMCH}}圆
+		</text>
+		<image href="https://gitee.com/jasonmacopyto/jasonmacopyto/raw/master/panda.png"
+		       transform="scale(0.2)" x="275%" y="220%"/>
+		<image href="https://gitee.com/jasonmacopyto/jasonmacopyto/raw/master/flower.png"
+		       transform="scale(0.3)" x="7.5%" y="125%"/>
+		<text font-size="18" fill="black" stroke="none"
+		      x="3%" y="93%">{{CODE}}
+		</text>
+		<text font-size="13" fill="black" stroke="none" font-family="楷体"
+		      x="20.5%" y="-190%" transform="rotate(90)">66666666
+		</text>
+		<text font-size="13" fill="black" stroke="none" font-family="楷体"
+		      x="-48%" y="195%" transform="rotate(-90)">99999999
+		</text>
+	</svg>
+</div>
+
+<!-- Constants -->
+<script>
+	const image = document.getElementById("template").innerText;
+	const m = {
+		100: {
+			"rects": ["F68C90", "E6C9CB", "DE77D3"],
+			"num": "壹佰",
+			"name": "AA"
+		},
+		50: {
+			"rects": ["0ED145", "91F3AD", "0B7C2B"],
+			"num": "伍拾",
+			"name": "BB"
+		},
+		20: {
+			"rects": ["D08C5C", "E5C1C1", "E17029"],
+			"num": "贰拾",
+			"name": "CC"
+		},
+		10: {
+			"rects": ["69778D", "A8B0C0", "7E9092"],
+			"num": "壹拾",
+			"name": "DD"
+		},
+		5: {
+			"rects": ["888888", "C9C9C9", "656565"],
+			"num": "伍",
+			"name": "EE"
+		},
+		1: {
+			"rects": ["555555", "969696", "323232"],
+			"num": "壹",
+			"name": "FF"
+		}
+	}
+</script>
+
+<!-- Packaging and Format-turning -->
+<script>
+	// POST https://v2.convertapi.com/convert/svg/to/png?Secret=TPglIYXyPOfwN62Q&download=attachment [multipart/form-data]
+	// name "File" type file
+
+	function generate(much, code){
+		render();
+	}
+	function render(much, code){
+		// clft crht cmid tmch bmch cmch code
+		let json = m[much];
+		let copied = image;
+		copied = copied.replace("{{CLFT}}", json.rects[0])
+				.replace("{{CRHT}}", json.rects[1])
+				.replace("{{CMID}}", json.rects[2])
+				.replace("{{TMCH}}", String(much))
+				.replace("{{BMCH}}", String(much))
+				.replace("{{CMCH}}", json.num)
+				.replace("{{CMID}}", json.name + String(code));
+		return copied;
+	}
+</script>
+
+<!-- Events -->
+<script>
+	document.getElementById("select").onchange = function () {
+		document.getElementById("nstr").innerHTML = m[Number(this.options[this.selectedIndex].value)].name
+	};
+	document.getElementById("submit").onclick = generate
+</script>
+</body>
+</html>
