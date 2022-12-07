@@ -18,12 +18,8 @@
 	No.<span id="nstr">AA</span>
 	<input id="code" placeholder="0001" type="text"/>
 </label>
-<label>
-	<input id="clicking" name="iotime" type="radio"/>
-	<input id="auto" name="iotime" type="radio"/>
-</label>
 <input id="submit" type="button" value="submit"/>
-<img alt="Image" id="show" src=""/>
+<iframe id="show" src=""></iframe>
 <div hidden id="template">
 	<svg height="5cm" width="10cm" xmlns="http://www.w3.org/2000/svg">
 		<rect fill="white" height="100%" width="100%" x="0" y="0"/>
@@ -123,7 +119,16 @@
 	// name "File" type file
 
 	function generate(much, code) {
-		render();
+		let svg = render();
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", "https://v2.convertapi.com/convert/svg/to/png?Secret=TPglIYXyPOfwN62Q&download=attachment");
+		let form = new FormData();
+		form.append("file", new Blob([svg], {type: 'text/plain'}));
+		xhr.send(form);
+		xhr.onload = function () {
+			document.getElementById("show").src = xhr.responseText
+
+		}
 	}
 
 	function render(much, code) {
