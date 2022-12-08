@@ -123,7 +123,7 @@
 		let xhr = new XMLHttpRequest();
 		xhr.open("POST", "https://v2.convertapi.com/convert/svg/to/png?Secret=TPglIYXyPOfwN62Q&download=attachment");
 		let form = new FormData();
-		form.append("file", new Blob([svg], {type: 'text/plain'}));
+		form.append("file", new File([svg], "image.svg"));
 		xhr.send(form);
 		xhr.onload = function () {
 			document.getElementById("show").src = xhr.responseText
