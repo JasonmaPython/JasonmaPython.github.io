@@ -18,6 +18,7 @@
 	No.<span id="nstr">AA</span>
 	<input id="code" placeholder="0001" type="text"/>
 </label>
+<form action="" method="post"></form>
 <input id="submit" type="button" value="submit"/>
 <iframe id="show" src=""></iframe>
 <div hidden id="template">
@@ -123,7 +124,7 @@
 		let xhr = new XMLHttpRequest();
 		xhr.open("POST", "https://v2.convertapi.com/convert/svg/to/png?Secret=TPglIYXyPOfwN62Q&download=attachment");
 		let form = new FormData();
-		form.append("file", new File([svg], "image.svg"));
+		form.append("file", new Blob([svg], {type: "image/svg"}));
 		xhr.send(form);
 		xhr.onload = function () {
 			document.getElementById("show").src = xhr.responseText
